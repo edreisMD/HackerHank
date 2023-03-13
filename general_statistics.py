@@ -42,8 +42,12 @@ squaredPoison = p + p**2
 '''
 '''
 from statistics import NormalDist
-
 result = NormalDist(mu=mean, sigma=sd).cdf(x)
+
+# or 
+
+def cdf(mean, variance, x):
+    return 0.5*(1 + math.erf((x-mean)/math.sqrt(2*variance)))
 
 # -- 
 
