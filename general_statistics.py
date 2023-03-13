@@ -110,6 +110,9 @@ def standardDev(arr):
 
 # Bivariate Analysis - Bivariate analysis is a kind of statistical analysis when two variables are observed against each other. Ability to compute the Correlation, Covariance, Least Square method, Regression analysis, Goodness of fit.
 
+#  -- Covariance
+
+
 # -- Pearson Correlation
 
 def pearsonCorrCoe(ds1, ds2):
@@ -120,6 +123,32 @@ def pearsonCorrCoe(ds1, ds2):
     covariance = sum([(ds1[i] - mean1)*(ds2[i] - mean2) for i in range(n)])/n
     correlation = covariance/(std1*std2)
     return correlation
+  
+# -- Spearman correlation
+
+def spearman(x, y):
+    origx = x[:]
+    origy = y[:]
+    x.sort()
+    y.sort()
+    
+    d2 = []
+    
+    for i in range(0, len(x)):
+        d = (x.index(origx[i]) + 1) - (y.index(origy[i]) + 1)
+        d2.append(d ** 2)
+        
+    return 1 - (6 * sum(d2) / (len(x) * (len(x) ** 2 - 1)))
+  
+# Linear Regression
+
+from sklearn import linear_model
+import numpy as np
+
+lm = linear_model.LinearRegression()
+lm.fit(x, y)
+intercept = lm.intercept_
+x = lm.coef_[0]
  
 
 # Commonly used error metrics - A statistical error is the (unknown) difference between the retained value and the true value. An understanding of some common error metrics: Mean Squared Error (MSE) Root Mean Square Error (RMSE) Mean Absolute Scaled Error (MASE). 
