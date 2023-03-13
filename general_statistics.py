@@ -149,6 +149,24 @@ lm = linear_model.LinearRegression()
 lm.fit(x, y)
 intercept = lm.intercept_
 x = lm.coef_[0]
+
+# or
+
+def linearReg(x,y):
+    sumX = sum(x)
+    sumY = sum(y)
+    mux = sumX/n
+    muy = sumY/n
+    xy = 0
+    x2 = 0
+    for i in range(0, n):
+        xy += x[i] * y[i]
+        x2 += x[i] ** 2
+
+    slope = (n * xy - sumX * sumY)/(n * x2 - sumX**2)
+    intercept = muy - slope*mux
+    
+    return slope, intercept
  
 
 # Commonly used error metrics - A statistical error is the (unknown) difference between the retained value and the true value. An understanding of some common error metrics: Mean Squared Error (MSE) Root Mean Square Error (RMSE) Mean Absolute Scaled Error (MASE). 
