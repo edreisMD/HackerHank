@@ -95,12 +95,36 @@ def mode(arr):
 # -- Range - The range of a set of data is the difference between the largest and smallest values.
 
 # -- Variance - Variance is the expectation of the squared deviation of a random variable from its mean.
+def variance(arr):
+    n = len(arr)
+    mean = sum(arr) / n
+    return sum([(mean - n) ** 2 for n in arr]) / n
 
 # -- Standard deviation - The standard deviation is a measure of the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean of the set, while a high standard deviation indicates that the values are spread out over a wider range.
 
+def standardDev(arr):
+    n = len(arr)
+    mean = sum(arr) / n
+    var = sum([(mean - n) ** 2 for n in arr]) / n
+    return math.sqrt(var)
 
 # Bivariate Analysis - Bivariate analysis is a kind of statistical analysis when two variables are observed against each other. Ability to compute the Correlation, Covariance, Least Square method, Regression analysis, Goodness of fit.
+
+# -- Pearson Correlation
+
+def pearsonCorrCoe(ds1, ds2):
+    mean1 = mean(ds1)
+    std1 = standardDev(ds1)
+    mean2 = mean(ds2)
+    std2 = standardDev(ds2)
+    covariance = sum([(ds1[i] - mean1)*(ds2[i] - mean2) for i in range(n)])/n
+    correlation = covariance/(std1*std2)
+    return correlation
+ 
+
 # Commonly used error metrics - A statistical error is the (unknown) difference between the retained value and the true value. An understanding of some common error metrics: Mean Squared Error (MSE) Root Mean Square Error (RMSE) Mean Absolute Scaled Error (MASE). 
+
+
 # Bias/Variance - In statistics and machine learning, the bias–variance tradeoff is the property of a model that the variance of the parameter estimates across samples can be reduced by increasing the bias in the estimated parameters.
 # Type - 1 / Type - 2 - In statistical hypothesis testing, a type I error is the rejection of a true null hypothesis, while a type II error is the non-rejection of a false null hypothesis.
 # Noise - Statistical noise refers to variability within a sample, stochastic disturbance in a regression equation, or estimation error. This noise is often represented as a random variable. Y = m (X ǀ θ) + ε, with E (ε) = 0, the random variable ε is called a disturbance or error term and reflects statistical noise.
