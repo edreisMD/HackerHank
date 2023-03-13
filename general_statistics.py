@@ -49,9 +49,15 @@ result = NormalDist(mu=mean, sigma=sd).cdf(x)
 def cdf(mean, variance, x):
     return 0.5*(1 + math.erf((x-mean)/math.sqrt(2*variance)))
 
-# -- 
-
 # Central limit theorem - Familiarity with applying the Central Limit Theorem (CLT), which is a statistical concept that states that the sample mean distribution of a random variable will assume a near-normal or normal distribution if the sample size is large enough.
+
+# -- In the Centrl limit theorem Mean = MeanPopulation, and STD = STD / sqrt(n)
+
+mean = mean
+std = math.sqrt(n)
+result = NormalDist(mu=mean, sigma=sd).cdf(x)
+
+
 
 # Measures of Central tendency - A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set of data. 
 # -- Mean - The mean is the average or the most common value in a collection of numbers. 
