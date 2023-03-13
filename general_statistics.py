@@ -1,5 +1,3 @@
-
-
 # Key Competencies: 
 
 # Samples - Ability to obtain a sample mean. Sampling is a process used in statistical analysis in which a predetermined number of observations are taken from a larger group. A sample is refers to a smaller, manageable version of a larger group. 
@@ -25,8 +23,29 @@ def geometricDistribution(n, p): # where p is the probability of a successful tr
   return (1-p) ** (n-1) * p
 
 # -- Poison Distribution
+''' 
+- The outcome of each trial is either success or failure.
+- The average number of successes  that occurs in a specified region is known.
+- The probability that a success will occur is proportional to the size of the region.
+- The probability that a success will occur in an extremely small region is virtually zero.
+(from: https://www.hackerrank.com/challenges/s10-geometric-distribution-1/tutorial)
+'''
+import math
+def poisonDist(k, p):
+    return p ** k * math.e ** -p / math.factorial(k)
 
+# -- special case when you want to know the squared value of posison distribution
+squaredPoison = p + p**2
 
+# Normal distribution
+# -- Cummulative density function (CDF)
+'''
+'''
+from statistics import NormalDist
+
+result = NormalDist(mu=mean, sigma=sd).cdf(x)
+
+# -- 
 
 # Central limit theorem - Familiarity with applying the Central Limit Theorem (CLT), which is a statistical concept that states that the sample mean distribution of a random variable will assume a near-normal or normal distribution if the sample size is large enough.
 
