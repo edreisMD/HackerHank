@@ -120,6 +120,7 @@ def pearsonCorrCoe(ds1, ds2):
     std1 = standardDev(ds1)
     mean2 = mean(ds2)
     std2 = standardDev(ds2)
+    n=len(ds1)
     covariance = sum([(ds1[i] - mean1)*(ds2[i] - mean2) for i in range(n)])/n
     correlation = covariance/(std1*std2)
     return correlation
